@@ -6,7 +6,7 @@ import { leaveToday, pendingRequests } from '../../../data/dashboard.js';
 
 export function EmployeesOnLeave() {
   return (
-    <Card className="flex flex-col p-6">
+    <Card className="flex flex-col p-4">
       <SectionHeader title="Employees On Leave Today" action={<a className="text-sm font-medium text-brand-600 hover:underline" href="#">View all</a>} />
       <div className="flex-1 space-y-4">
         {leaveToday.map((employee) => (
@@ -28,7 +28,7 @@ export function EmployeesOnLeave() {
 
 export function PendingLeaveRequests() {
   return (
-    <Card className="flex flex-col p-6">
+    <Card className="flex flex-col p-4">
       <SectionHeader title="Pending Leave Requests" action={<a className="text-sm font-medium text-brand-600 hover:underline" href="#">View all</a>} />
       <div className="flex-1 space-y-4">
         {pendingRequests.map((request) => (

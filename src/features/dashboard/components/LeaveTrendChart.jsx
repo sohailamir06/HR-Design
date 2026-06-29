@@ -3,7 +3,7 @@ import { months } from '../../../data/dashboard.js';
 
 export function LeaveTrendChart() {
   return (
-    <Card className="p-6">
+    <Card className="p-4">
       <div className="mb-6 flex items-center justify-between gap-4">
         <h3 className="font-bold text-ink">Leave Trend (2026)</h3>
         <select aria-label="Chart year" className="rounded-md border-line bg-panel py-1 pl-2 pr-8 text-sm text-ink shadow-sm focus:border-brand-600 focus:ring-brand-600">

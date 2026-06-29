@@ -7,8 +7,8 @@ const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 export function LeaveCalendar() {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      <Card className="p-6">
+    <div className="grid gap-4 md:grid-cols-2">
+      <Card className="p-4">
         <h3 className="mb-4 font-bold text-ink">Leave Calendar</h3>
         <div className="mb-4 flex items-center justify-between">
           <button aria-label="Previous month" className="focus-ring rounded p-1 text-muted hover:text-ink" type="button"><ChevronLeft className="size-4" /></button>
@@ -40,7 +40,7 @@ export function LeaveCalendar() {
         </div>
       </Card>
 
-      <Card className="flex flex-col border-line bg-brand-50 p-6 shadow-inner">
+      <Card className="flex flex-col border-line bg-brand-50 p-4 shadow-inner">
         <h3 className="mb-4 font-bold text-ink">Friday, 19 June</h3>
         <div className="flex-1 space-y-3 overflow-y-auto">
           {dailyEvents.map((event) => (

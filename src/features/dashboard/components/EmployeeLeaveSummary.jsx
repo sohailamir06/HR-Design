@@ -25,7 +25,7 @@ function LeaveCell({ value, isDeduction }) {
 export function EmployeeLeaveSummary() {
   return (
     <Card className="mt-6 flex flex-col overflow-hidden">
-      <div className="border-b border-line p-6">
+      <div className="border-b border-line p-4">
         <h3 className="mb-4 text-lg font-bold text-ink">Employee Leave Summary - 2026</h3>
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-3">

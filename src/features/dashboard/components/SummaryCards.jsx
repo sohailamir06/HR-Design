@@ -14,7 +14,7 @@ export function SummaryCards() {
   return (
     <section aria-label="Dashboard summary" className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-5">
       {summaryCards.map(({ label, value, helper, icon: Icon, helperIcon: HelperIcon, tone, helperTone }) => (
-        <Card className="flex items-center gap-4 p-5" key={label}>
+        <Card className="flex items-center gap-4 p-4" key={label}>
           <div className={cn('flex size-12 shrink-0 items-center justify-center rounded-full', toneClasses[tone])}>
             <Icon aria-hidden="true" className="size-5" />
           </div>

@@ -9,7 +9,7 @@ import { SummaryCards } from './components/SummaryCards.jsx';
 
 export function DashboardPage() {
   return (
-    <div className="mx-auto max-w-dashboard space-y-6">
+    <div className="space-y-4">
       <section className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <div>
           <h2 className="text-2xl font-bold text-ink">Good morning, Admin</h2>
@@ -22,13 +22,13 @@ export function DashboardPage() {
 
       <SummaryCards />
 
-      <section className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+      <section className="grid grid-cols-1 gap-4 xl:grid-cols-3">
         <LeaveTrendChart />
         <EmployeesOnLeave />
         <PendingLeaveRequests />
       </section>
 
-      <section className="grid grid-cols-1 gap-6 xl:grid-cols-4">
+      <section className="grid grid-cols-1 gap-4 xl:grid-cols-4">
         <div className="xl:col-span-2">
           <LeaveCalendar />
         </div>

@@ -21,7 +21,7 @@ function ReportHeader({ title, tone }) {
 
 export function MiniReports() {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className="grid gap-4 md:grid-cols-2">
       <Card className="overflow-hidden">
         <ReportHeader title="Leaves - June 2026" tone="orange" />
         <div className="overflow-x-auto">
