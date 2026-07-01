@@ -3,8 +3,8 @@ import { cn } from '../../utils/cn.js';
 export function Avatar({ initials, alt, src, className, tone = 'gray' }) {
   const tones = {
     gray: 'bg-brand-100 text-brand-700',
-    blue: 'bg-sky-100 text-accent-sky',
-    orange: 'bg-amber-100 text-accent-amber',
+    blue: 'bg-sky-200 text-accent-sky',
+    orange: 'bg-amber-500 text-accent-amber',
   };
 
   if (src) {

@@ -1,7 +1,7 @@
 import { pageActions } from '../../data/dashboard.js';
 import { Button } from '../../components/ui/Button.jsx';
 import { EmployeeLeaveSummary } from './components/EmployeeLeaveSummary.jsx';
-import { EmployeesOnLeave, PendingLeaveRequests } from './components/LeaveLists.jsx';
+import { RecentActivities, PendingLeaveRequests } from './components/LeaveLists.jsx';
 import { LeaveCalendar } from './components/LeaveCalendar.jsx';
 import { LeaveTrendChart } from './components/LeaveTrendChart.jsx';
 import { MiniReports } from './components/MiniReports.jsx';
@@ -10,7 +10,7 @@ import { SummaryCards } from './components/SummaryCards.jsx';
 export function DashboardPage() {
   return (
     <div className="space-y-4">
-      <section className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+      <section className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center bg-white p-4 rounded-lg shadow-sm">
         <div>
           <h2 className="text-2xl font-bold text-ink">Good morning, Admin</h2>
           <p className="mt-1 text-muted">Here&apos;s what&apos;s happening in your organization today.</p>
@@ -24,8 +24,8 @@ export function DashboardPage() {
 
       <section className="grid grid-cols-1 gap-4 xl:grid-cols-3">
         <LeaveTrendChart />
-        <EmployeesOnLeave />
         <PendingLeaveRequests />
+        <RecentActivities />
       </section>
 
       <section className="grid grid-cols-1 gap-4 xl:grid-cols-4">

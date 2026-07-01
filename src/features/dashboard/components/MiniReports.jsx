@@ -1,4 +1,4 @@
-import { Download, FileText } from 'lucide-react';
+import { Download, FileText, Mail } from 'lucide-react';
 import { Card } from '../../../components/ui/Card.jsx';
 import { juneDeductions, juneLeaves } from '../../../data/dashboard.js';
 
@@ -12,9 +12,14 @@ function ReportHeader({ title, tone }) {
         <FileText aria-hidden="true" className={`size-4 ${iconTone}`} />
         {title}
       </h3>
-      <button aria-label={`Download ${title}`} className="focus-ring rounded p-1 text-accent-mint hover:text-emerald-700" type="button">
-        <Download aria-hidden="true" className="size-4" />
-      </button>
+      < div className="flex items-center gap-2">
+        <button aria-label={`Download ${title}`} className="focus-ring rounded p-1 text-accent-mint hover:text-emerald-700" type="button">
+          <Mail aria-hidden="true" className="size-4" />
+        </button>
+        <button aria-label={`Download ${title}`} className="focus-ring rounded p-1 text-accent-mint hover:text-emerald-700" type="button">
+          <Download aria-hidden="true" className="size-4" />
+        </button>
+      </div>
     </div>
   );
 }
@@ -23,7 +28,7 @@ export function MiniReports() {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       <Card className="overflow-hidden">
-        <ReportHeader title="Leaves - June 2026" tone="orange" />
+        <ReportHeader title="Leaves - July 2026" tone="orange" />
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="border-b border-line bg-brand-50 text-muted">
@@ -47,20 +52,22 @@ export function MiniReports() {
       </Card>
 
       <Card className="overflow-hidden">
-        <ReportHeader title="Leave Deductions - June 2026" tone="blue" />
+        <ReportHeader title="Leaves - June 2026" />
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="border-b border-line bg-brand-50 text-muted">
               <tr>
                 <th className="px-4 py-2 font-medium">Employee Name</th>
-                <th className="px-4 py-2 text-right font-medium">Deduction</th>
+                <th className="px-4 py-2 text-center font-medium">Leave</th>
+                <th className="px-4 py-2 text-center font-medium">Leave Deduction</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-line text-ink">
-              {juneDeductions.map((row) => (
+              {juneLeaves.map((row) => (
                 <tr key={row.employee}>
                   <td className="px-4 py-2">{row.employee}</td>
-                  <td className="px-4 py-2 text-right text-accent-rose">{row.deduction}</td>
+                  <td className="px-4 py-2 text-center">{row.leave}</td>
+                  <td className="px-4 py-2 text-center text-accent-rose">{row.deduction}</td>
                 </tr>
               ))}
             </tbody>
