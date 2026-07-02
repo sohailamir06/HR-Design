@@ -31,7 +31,7 @@ const quickActions = [
   { label: 'Attendance', icon: Clock, className: 'bg-brand-50 text-brand-700 hover:bg-brand-100' },
 ];
 
-export function Sidebar() {
+export function Sidebar({ onAddEmployeeClick, onApplyLeaveClick }) {
   return (
     <aside className="hidden h-full w-64 shrink-0 flex-col overflow-y-auto border-r border-line bg-[#EEE0FA] lg:flex">
       <div className="flex items-center gap-3 p-6">
@@ -64,6 +64,13 @@ export function Sidebar() {
             <button
               className={cn('focus-ring flex w-full items-center gap-3 rounded-lg px-4 py-2 text-sm font-medium transition-colors', className)}
               key={label}
+              onClick={
+                label === 'Apply Leave'
+                  ? onApplyLeaveClick
+                  : label === 'Add Employee'
+                    ? onAddEmployeeClick
+                    : undefined
+              }
               type="button"
             >
               <Icon aria-hidden="true" className="size-4 shrink-0" />
