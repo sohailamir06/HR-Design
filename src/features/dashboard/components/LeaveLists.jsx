@@ -67,7 +67,7 @@ export function PendingLeaveRequests() {
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
+                <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-600">
                   Pending
                 </span>
                 <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
@@ -99,9 +99,9 @@ export function RecentActivities() {
         {recentActivities.map((activity) => (
           <article
             key={activity.id}
-            className="group flex flex-col gap-4 rounded-xl border border-line bg-white p-2 shadow-sm transition duration-200 hover:bg-brand-50"
+            className="group flex flex-col gap-4 rounded-xl bg-white p-2 shadow-sm transition duration-200 hover:bg-brand-50"
           >
-            <div className="flex items-start gap-4">
+            <div className="flex items-center gap-4">
               <Avatar
                 alt={activity.user}
                 initials={activity.initials}
@@ -109,22 +109,13 @@ export function RecentActivities() {
               />
 
               <div className="min-w-0 flex-1">
-                <p className="flex justify-between items-center text-sm leading-6 text-ink">
-                  <span><span className="font-semibold">{activity.user}</span> {activity.action}</span>
-                  {activity.badge && (
-                    <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
-                      {activity.badge}
-                    </span>
-                  )}
-                </p>
-
-                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
-                  <span className="inline-flex items-center gap-2">
-                    <Clock3 className="size-3 text-brand-700" />
+                <p className="flex justify-between items-center text-xs text-ink">
+                  <span className="font-semibold">{activity.user}</span>
+                  <span className="text-xs text-muted flex items-center gap-1">
                     {activity.time}
                   </span>
-
-                </div>
+                </p>
+                <p className="text-xs text-muted">{activity.action}</p>
               </div>
             </div>
           </article>

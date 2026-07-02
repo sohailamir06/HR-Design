@@ -14,7 +14,7 @@ export function Avatar({ initials, alt, src, className, tone = 'gray' }) {
   return (
     <span
       aria-label={alt}
-      className={cn('inline-flex size-10 items-center justify-center rounded-full text-sm font-bold', tones[tone], className)}
+      className={cn('inline-flex size-8 items-center justify-center rounded-full text-xs font-bold', tones[tone], className)}
       role="img"
     >
       {initials}
