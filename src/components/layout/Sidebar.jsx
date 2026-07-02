@@ -16,12 +16,12 @@ import { Avatar } from '../ui/Avatar.jsx';
 import { cn } from '../../utils/cn.js';
 
 const navigationItems = [
-  { label: 'Dashboard', href: '#', icon: Home, active: true },
-  { label: 'Employees', href: '#', icon: Users },
-  { label: 'Salary', href: '#', icon: Wallet },
-  { label: 'Leave', href: '#', icon: CalendarMinus },
-  { label: 'User Management', href: '#', icon: UserCog },
-  { label: 'Settings', href: '#', icon: Settings },
+  { label: 'Dashboard', page: 'dashboard', icon: Home },
+  { label: 'Employees', page: 'employees', icon: Users },
+  { label: 'Salary', page: 'salary', icon: Wallet },
+  { label: 'Leave', page: 'leave', icon: CalendarMinus },
+  { label: 'User Management', page: 'user-management', icon: UserCog },
+  { label: 'Settings', page: 'settings', icon: Settings },
 ];
 
 const quickActions = [
@@ -31,7 +31,7 @@ const quickActions = [
   { label: 'Attendance', icon: Clock, className: 'bg-brand-50 text-brand-700 hover:bg-brand-100' },
 ];
 
-export function Sidebar({ onAddEmployeeClick, onApplyLeaveClick }) {
+export function Sidebar({ currentPage, onAddEmployeeClick, onApplyLeaveClick, onNavigate }) {
   return (
     <aside className="hidden h-full w-64 shrink-0 flex-col overflow-y-auto border-r border-line bg-[#EEE0FA] lg:flex">
       <div className="flex items-center gap-3 p-6">
@@ -40,19 +40,24 @@ export function Sidebar({ onAddEmployeeClick, onApplyLeaveClick }) {
       </div>
 
       <nav aria-label="Primary" className="flex-1 space-y-1 px-4 py-4">
-        {navigationItems.map(({ label, href, icon: Icon, active }) => (
-          <a
-            className={cn(
-              'flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-colors',
-              active ? 'bg-brand-600 text-white shadow-sm shadow-brand-200/60' : 'text-muted hover:bg-brand-50 hover:text-ink',
-            )}
-            href={href}
-            key={label}
-          >
-            <Icon aria-hidden="true" className="size-5 shrink-0" />
-            {label}
-          </a>
-        ))}
+        {navigationItems.map(({ label, page, icon: Icon }) => {
+          const active = currentPage === page;
+
+          return (
+            <button
+              className={cn(
+                'flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left font-medium transition-colors',
+                active ? 'bg-brand-600 text-white shadow-sm shadow-brand-200/60' : 'text-muted hover:bg-brand-50 hover:text-ink',
+              )}
+              key={label}
+              onClick={page === 'dashboard' || page === 'employees' ? () => onNavigate(page) : undefined}
+              type="button"
+            >
+              <Icon aria-hidden="true" className="size-5 shrink-0" />
+              {label}
+            </button>
+          );
+        })}
       </nav>
 
       <section aria-labelledby="quick-actions-heading" className="mx-4 mb-4 rounded-xl border border-line bg-panel/70 p-4">
